@@ -19,6 +19,7 @@ public class DrivingLicence {
 
     public DrivingLicence removePoint(int nbPointToRemove)
     {
-        return this;
+        var newPoint = Math.max(availablePoints - nbPointToRemove, 0);
+        return this.withAvailablePoints(newPoint);
     }
 }
