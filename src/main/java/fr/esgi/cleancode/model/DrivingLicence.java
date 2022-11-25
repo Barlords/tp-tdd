@@ -16,4 +16,9 @@ public class DrivingLicence {
     @With
     @Default
     int availablePoints = 12;
+
+    public DrivingLicence removePoint(int nbPointToRemove)
+    {
+        return this;
+    }
 }
