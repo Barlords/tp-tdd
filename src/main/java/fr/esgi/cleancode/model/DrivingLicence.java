@@ -11,7 +11,7 @@ import java.util.UUID;
 @Builder
 public class DrivingLicence {
     UUID id;
-    String driverSocialSecurityNumber;
+    SocialSecurityNumber driverSocialSecurityNumber;
 
     @With
     @Default

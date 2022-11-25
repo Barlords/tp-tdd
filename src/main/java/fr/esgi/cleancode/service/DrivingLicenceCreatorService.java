@@ -4,15 +4,12 @@ import fr.esgi.cleancode.database.InMemoryDatabase;
 import fr.esgi.cleancode.model.DrivingLicence;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
-import java.util.UUID;
-
 @RequiredArgsConstructor
-public class DrivingLicenceFinderService {
+public class DrivingLicenceCreatorService {
 
     private final InMemoryDatabase database;
 
-    public Optional<DrivingLicence> findById(UUID drivingLicenceId) {
-        return Optional.empty();
+    public DrivingLicence create(String socialSecurityNumber) {
+        return DrivingLicence.builder().build();
     }
 }
