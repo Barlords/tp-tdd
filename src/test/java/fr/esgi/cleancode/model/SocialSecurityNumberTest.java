@@ -2,17 +2,20 @@ package fr.esgi.cleancode.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.UUID;
 
 public class SocialSecurityNumberTest {
 
-    @Test
-    void should_throw_InvalidDriverSocialSecurityNumberException()
+    @ParameterizedTest
+    @NullAndEmptySource
+    @ValueSource(strings = {"no", "no again", "166813521", "a12345678912345"})
+    void should_be_not_valid(String ssn)
     {
-        Assertions.assertThatException().isThrownBy(() -> SocialSecurityNumber.builder().number(null).build());
-        Assertions.assertThatException().isThrownBy(() -> SocialSecurityNumber.builder().number("1891").build());
-        Assertions.assertThatException().isThrownBy(() -> SocialSecurityNumber.builder().number("A23456789874563").build());
+        Assertions.assertThatException().isThrownBy(() -> SocialSecurityNumber.builder().number(ssn).build());
     }
 
     @Test
